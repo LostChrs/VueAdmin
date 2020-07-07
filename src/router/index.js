@@ -54,7 +54,27 @@ export const constantRoutes = [
       meta: { title: 'Dashboard', icon: 'dashboard' }
     }]
   },
-
+  {
+    path: '/order',
+    component: Layout,
+    redirect: '/order/list',
+    name: 'Order',
+    meta: { title: '订单', icon: 'el-icon-s-help' },
+    children: [
+      {
+        path: 'list',
+        name: 'List',
+        component: () => import('@/views/order/list'),
+        meta: { title: '订单列表', icon: 'table' }
+      },
+      {
+        path: 'settings',
+        name: 'Settings',
+        component: () => import('@/views/order/settings'),
+        meta: { title: '订单设置', icon: 'tree' }
+      }
+    ]
+  },
   {
     path: '/example',
     component: Layout,
